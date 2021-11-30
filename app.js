@@ -9,12 +9,8 @@ const mongoose = require('mongoose')
 
 logger.info('Spajam se na', config.DB_URI)
 
-mongoose.connect(config.DB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false
-}).then(result => {
+mongoose.connect(config.DB_URI,)
+.then(result => {
   logger.info("Spojeni smo na bazu");
 }).catch(error => {
   logger.greska("Greška pri spajanju", error.message);
