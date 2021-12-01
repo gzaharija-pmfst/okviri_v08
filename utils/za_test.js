@@ -6,7 +6,9 @@ const prosjek = (niz) => {
   let suma = niz.reduce((rez, el) => {
     return rez + el
   }, 0)
-  return suma / niz.length
+  return niz.length === 0
+  ? 0
+  : suma / niz.length
 }
 
 module.exports = {palindrom, prosjek}
