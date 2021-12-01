@@ -45,7 +45,7 @@ porukeRouter.put('/:id', (req, res) => {
 
 })
 
-porukeRouter.post('/', (req, res, next) => {
+porukeRouter.post('/', async (req, res, next) => {
   const podatak = req.body
 
   const poruka = new Poruka({
@@ -54,11 +54,9 @@ porukeRouter.post('/', (req, res, next) => {
     datum: new Date()
   })
 
-  poruka.save()
-  .then(spremljenaPoruka => {
-    res.json(spremljenaPoruka)
-  })
-  .catch(err => next(err))
+  const spremljenaPoruka = await poruka.save()
+  res.json(spremljenaPoruka)
+
 })
 
 module.exports = porukeRouter
