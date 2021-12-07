@@ -1,4 +1,5 @@
 const Poruka = require('../models/poruka')	
+const Korisnik = require('../models/korisnik')	
 
 const pocetnePoruke = [
     {
@@ -26,7 +27,12 @@ const porukeIzBaze = async () => {
   return poruke.map(p => p.toJSON())
 }
 
+const korisniciUBazi = async () => {
+  const korisnici = await Korisnik.find({})
+  return korisnici.map(k => k.toJSON())
+}
+
 
 module.exports = {
-  pocetnePoruke, porukeIzBaze
+  pocetnePoruke, porukeIzBaze, korisniciUBazi
 }
